@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors"); // Import CORS
 const connectDB = require("./config/db");
 const bookRoutes = require("./route/bookRoute");
 
@@ -7,6 +8,9 @@ dotenv.config(); // Load environment variables
 
 // Initialize express app
 const app = express();
+
+// Middleware to allow all origins (CORS)
+app.use(cors()); // This allows all origins
 
 // Middleware to parse JSON body
 app.use(express.json());
